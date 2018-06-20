@@ -1,0 +1,12 @@
+<svg id="RWD_Icon_Set" data-name="RWD Icon Set" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 22.8">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0060a9;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <title>account</title>
+  <path id="account" class="cls-1" d="M1403.6,202.7c-1.2-.4-8-2.3-8.4-4.8s2.1-3.5,2-7.7a5,5,0,1,0-10.1,0c0,4.2,2.3,6,2,7.7s-7.2,4.4-8.4,4.8-1.3,3.6-.8,5h24.4C1405,206.3,1404.8,203.1,1403.6,202.7Z" transform="translate(-1379.7 -184.8)"/>
+</svg>

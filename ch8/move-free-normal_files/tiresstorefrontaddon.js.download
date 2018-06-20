@@ -1,0 +1,453 @@
+Costco.tiresstorefrontaddon = {
+    _autoload: [
+		["initTiresStoreFinder", $(".page-storefinderPage").length > 0],
+        ["initTiresPdp", $(".page-productDetails-tires").length > 0],
+        ["initTiresSearch", $(".page-tiresearch").length > 0],
+		["initCart", $(".page-cartPage").length > 0],
+		["initCheckout", $(".page-checkoutPage").length > 0],
+		["initDisclaimer", $(".page-tiredisclaimer").length > 0],
+		["initCompare", $(".page-compare-products").length > 0],
+		["initSearchResult", $(".page-search").length > 0]
+    ],	
+        
+	    	    
+		initCart : function(){
+	    if ($(".cart-message").length > 0) {
+				$(".cart-buttons").first().before( $(".cart-message"));
+			}
+            if(getUrlParameter("selectedWarehouse") != null){
+				var url = decodeURIComponent(window.location);
+				if(url.indexOf("cart") > -1 || url.indexOf("checkout") > -1){
+					$("#priceChangeModal").removeClass("hide");					
+				}				
+			}
+
+			$("#priceChangeModal .close").click(function(e){
+				e.preventDefault();
+				$("#priceChangeModal").addClass("hide");				
+			});	
+			
+			function getUrlParameter(sParam) {
+                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                    }
+                }
+            }
+		},
+
+		initCheckout : function(){
+
+            if(getUrlParameter("selectedWarehouse") != null){
+				var url = decodeURIComponent(window.location);
+				if(url.indexOf("cart") > -1 || url.indexOf("checkout") > -1){
+					$("#priceChangeModal").removeClass("hide");					
+				}				
+			}
+
+			$("#priceChangeModal .close").click(function(e){
+				e.preventDefault();
+				$("#priceChangeModal").addClass("hide");				
+			});
+			
+			function getUrlParameter(sParam) {
+                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                    }
+                }
+            }
+		},
+
+		initDisclaimer : function(){	
+			$(".decline-disclaimer").click(function(){
+				window.history.back();
+			});
+		},
+		
+		initCompare : function(){
+			$(".compare-back").click(function(){
+				window.history.back();
+			});
+		},
+
+		initTiresStoreFinder : function(){
+		
+			$(document).ajaxStop(function() {
+                    var url = document.referrer;
+                    var scheckout = "checkout";
+                    var scart = "cart";
+                    if($('.tire-store .btn-select-store ').is(':visible')){ 
+                    if (url.indexOf(scheckout) > -1){
+                    $('.select-store-checkout').addClass("show");
+                    $('.select-store-normal').addClass("hide");
+                    } else if(url.indexOf(scart) > -1){
+                   	$('.select-store-cart').addClass("show");
+                    $('.select-store-normal').addClass("hide");
+
+                    } else {
+                                            	
+	                    $(".tire-store .select-store-normal").attr( 'href', function(index, value) {
+	                    	return value;
+	                    });
+                    }
+                  } 
+			    });
+						
+        },
+
+        initTiresPdp : function(){
+
+            $('.page-productDetails-tires #addToCartButton').click(function(e){
+                var User = $(".membershipinfo").text().trim();
+                var datePickerField = $("#datePicker");
+                var pdpAddtoCartInputField = $("#pdpAddtoCartInput");
+                
+                var productDeliveryDateField =  $("#productDeliveryDate");
+                var hiddenPickupQtyField = $("#hiddenPickupQty");
+                var autoSubmitAddtocart = $("#autoSubmitAddToCart");
+    
+                if(autoSubmitAddtocart.val() != "true")
+            	{
+                    productDeliveryDateField.val(datePickerField.val());
+                    hiddenPickupQtyField.val(pdpAddtoCartInputField.val());
+            	}
+                
+                if(User === "ONLINE"){
+    				$('#online-pdpwarning').modal('show');
+    				$('#addToCartButton').attr("disabled","disabled");
+    				return false;
+            	 }
+                
+            });
+
+            $(document).ready(function() {
+            if($("#autoSubmitAddToCart").val() == 'true'){
+            	$('.page-productDetails-tires #addToCartButton').click();
+ 			}
+            });
+
+            function getParameterByName( name ) {
+    			var regexS = "[\\?&]"+name+"=([^&#]*)", 
+                regex = new RegExp( regexS ),
+                results = regex.exec( window.location.search );
+  				if( results == null ){
+   				 return "";
+  				} else{
+    				return decodeURIComponent(results[1].replace(/\+/g, " "));
+  				}
+            }
+		
+        },
+        
+        initSearchResult : function(){
+        	
+        		var $front = $("#front");
+        		var $rear = $("#rear");
+        		if(getParameterByName("tiretype") == "rear"){
+					$rear.parent().addClass("active");
+					$front.parent().removeClass("active");
+				} else if (getParameterByName("tiretype") == "front"){
+					$front.parent().addClass("active");
+					$rear.parent().removeClass("active");
+				} 
+        		
+        		
+        		
+        	
+        
+	        	function getParameterByName( name ){
+	    			var regexS = "[\\?&]"+name+"=([^&#]*)", 
+	  			regex = new RegExp( regexS ),
+	  			results = regex.exec( window.location.search );
+	  				if( results == null ){
+	   				 return "";
+	  				} else{
+	    				return decodeURIComponent(results[1].replace(/\+/g, " "));
+	  				}
+				}
+
+        },
+        
+        
+        initTiresSearch : function(){
+            var User = $(".membershipinfo").text().trim();
+			if(User === "ANONYMOUS"){
+				$('#anonymous-warning').modal('show');
+				} else if(User === "ONLINE"){
+				$('#online-warning').modal('hide');
+                } 
+
+            $('.reg-searchbtn').on('click', function() {
+			if (!ValidateRegistNumber($(".regNo").val())) {
+				$(".error-message").show();
+			} else {
+				location.href = '/tiresearch/registration?text=' + $(".regNo").val();
+			}
+            });
+            
+            $(".regNo").focus(function(){
+                $(".error-message").hide();			
+            });
+            
+            $("document").ready(function() {
+				$(".size-tire").trigger('click');
+				dynamictabs();
+			});
+	    
+            $(window).resize(function(){
+				dynamictabs();
+			});
+		
+	    	function dynamictabs(){
+		    	if($(".nav li").length > 2){
+					var no = $(".nav li").length;
+					var width = (100/no);
+					$(".nav li").width(width+'%');	
+				}
+				    // Find the max height of the elements...
+				var maxHeight = Math.max.apply(null, $(".nav li").map(function (){
+				      return $(this).height();
+				}).get());
+		
+				  // And set it to all the elements
+				$(".nav li").css('height', maxHeight);
+		    }
+			
+            $('.size-tire').one('click', function(){
+            	sizetargetClass = ".select-width";
+            	currentField = "";
+                sizedetailsdata();
+            });
+            
+            function sizedetailsdata() {
+            	var data = {}
+            	data["width"] = $(".select-width").val();
+            	data["profile"] = $(".select-profile").val();
+            	data["rimSize"] = $(".select-rimsize").val();
+            	data["speedRating"] = $(".select-speedrating").val();
+            	
+	            $.ajax({
+	                url: "/tiresearch/size/options?currentfield=" + currentField,
+	                contentType: "application/json; charset=utf-8",
+	                dataType: "json",
+	                data: JSON.stringify(data),
+	                type: "POST",
+	                success: function(data) {
+	                    for(i = 0 ; i < data.length; i++){
+	                        $(sizetargetClass).append('<option value="' +data[i]+ '">'+data[i]+'</option>');
+	                    }
+	                }
+	            });
+            }
+            
+            $(".size-selection").on("change", function(){
+            	var sizeSpeedRatingSelected = false;
+				var sizeRimSizeSelected = false;
+            	if($(this).attr("data-field") == "widthtire"){
+            		currentField = "widthtire";
+            		sizetargetClass = ".select-profile";
+                    $(".searchbn").attr("disabled","disabled");
+                    $('.select-profile option[value!=""]').remove();
+                    $('.select-rimsize option[value!=""]').remove();
+                    $('.select-speedrating option[value!=""]').remove();
+            	} else if ($(this).attr("data-field") == "profiletire"){
+            		currentField = "profiletire";
+            		sizetargetClass = ".select-rimsize";				
+                    $(".searchbn").attr("disabled","disabled");
+                    $('.select-rimsize option[value!=""]').remove();
+                    $('.select-speedrating option[value!=""]').remove();
+            	} else if ($(this).attr("data-field") == "rimsizetire"){
+				     if($(".search-page-uk").length > 0){
+					 currentField = "rimSizetire";
+            		 sizetargetClass = ".select-speedrating";
+					 $(".searchbn").attr("disabled","disabled");
+					 $('.select-speedrating option[value!=""]').remove();
+					} else {
+            		 $(".searchbn").removeAttr("disabled");
+                     sizeRimSizeSelected = true;
+					}
+            	} else if ($(this).attr("data-field") == "speedratingtire"){
+					$(".searchbn").removeAttr("disabled");
+					sizeSpeedRatingSelected = true;
+					sizeRimSizeSelected = true;
+				}
+            	
+            	if(!sizeSpeedRatingSelected || !sizeRimSizeSelected){
+            		sizedetailsdata();
+            	}
+            	
+            	
+            }); 
+            
+            
+            $('.vechicle-selection').one('click', function(){
+            	vechicletargetClass = ".select-year";
+                Vehicledetailsdata();
+            });
+            
+            function Vehicledetailsdata() {
+            	var data = {}
+            	data["year"] = $(".select-year").val();
+            	data["make"] = $(".select-make").val();
+            	data["model"] = $(".select-model").val();
+            	data["version"] = $(".select-version").val();
+            	
+	            $.ajax({
+	                url: "/tiresearch/vehicle/options?searchfield=" + $(vechicletargetClass).attr("data-field"),
+	                contentType: "application/json; charset=utf-8",
+	                dataType: "json",
+	                data: JSON.stringify(data),
+	                type: "POST",
+	                success: function(data) {
+	                    for(i = 0 ; i < data.length; i++){
+	                        $(vechicletargetClass).append('<option value="' +data[i]+ '">'+data[i]+'</option>');
+	                    }
+	                }
+	            });
+            }
+            
+            $(".vehicleoption-selection").on("change", function(){
+            	var vehicleVersionSelected = false;
+            	if($(this).attr("data-field") == "vehicleyear"){
+            		vechicletargetClass = ".select-make";
+                    $(".searchbn").attr("disabled","disabled");
+                    $('.select-make option[value!=""]').remove();
+                    $('.select-model option[value!=""]').remove();
+                    $('.select-version option[value!=""]').remove();
+            	} else if ($(this).attr("data-field") == "vehiclemake"){
+            		vechicletargetClass = ".select-model";
+                    $(".searchbn").attr("disabled","disabled");
+                    $('.select-model option[value!=""]').remove();
+                    $('.select-version option[value!=""]').remove();
+            	} else if ($(this).attr("data-field") == "vehiclemodel"){
+            		vechicletargetClass = ".select-version";
+                    $('.select-version option[value!=""]').remove();
+            	} else if ($(this).attr("data-field") == "vehicleversion"){
+            		$(".searchbn").removeAttr("disabled");
+            		vehicleVersionSelected = true;
+            	}
+            	
+            	if(!vehicleVersionSelected){
+            		Vehicledetailsdata();
+            	}
+            	
+            	
+            });
+            
+                        
+            
+			$('.search-submitbtn').click(function() {	
+                var width = $(".select-width").val();
+                var profile = $(".select-profile").val();
+                var rimSize = $(".select-rimsize").val();
+                var speedRating = $(".select-speedrating").val();
+                var rearWidth = null;
+                var rearProfile = null;
+                var rearRimSize = null;
+                var rearSpeedRating = null;
+                
+                var frontquery = "";
+                var rearquery = "";
+                
+                            
+                if($("input[name=tireSelection]:checked").attr("data-value") != null){ 			
+                    var str = $("input[name=tireSelection]:checked").attr("data-value"); 			
+                    var selectedOption = str.split("|"); 			
+                    width = selectedOption[0]; 			
+                    profile = selectedOption[1]; 			
+                    rimSize = selectedOption[2]; 			
+                    speedRating = selectedOption[3];
+                    if(selectedOption.length == 8)
+                	{
+	                    rearWidth = selectedOption[4]; 			
+	                    rearProfile = selectedOption[5]; 			
+	                    rearRimSize = selectedOption[6]; 			
+	                    rearSpeedRating = selectedOption[7];                	
+                	}
+                } 
+                
+                if(width != null && width!= ""){
+                	frontquery+= "tireWidth:"+width;
+                }
+                if(profile != null && profile!= ""){
+                	frontquery+= "::tireProfile:"+profile;
+                }
+                if(rimSize != null && rimSize!= ""){
+                	frontquery+= "::tireRimSize:"+rimSize;
+                }
+                if(speedRating != null && speedRating!= ""){
+                	frontquery+= "::tireSpeedRating:"+speedRating;
+                }
+
+                if(rearWidth != null && rearWidth!= ""){
+                	rearquery+= "tireWidth:"+rearWidth;
+                }
+                if(rearProfile != null && rearProfile!= ""){
+                	rearquery+= "::tireProfile:"+rearProfile;
+                }
+                if(rearRimSize != null && rearRimSize!= ""){
+                	rearquery+= "::tireRimSize:"+rearRimSize;
+                }
+                if(rearSpeedRating != null && rearSpeedRating!= ""){
+                	rearquery+= "::tireSpeedRating:"+rearSpeedRating;
+                }
+
+                $('#frontfilters').val(frontquery);
+                $('#rearfilters').val(rearquery);
+            });
+
+            $('.Search-close').on('click', function(){
+			   $('.modalDialog').css('opacity', '0');
+			   location.href = '/tiresearch';
+            });
+
+            $('.search-error .close').on('click', function(){
+                $('.modalDialog').css('visibility', 'hidden');
+            });
+            
+            
+            $('#proceedCheckbox').click(function() {
+                    if ($(this).is(':checked')) {
+                        $('.search-submitbtn').removeAttr('disabled');
+                    } else {
+                        $('.search-submitbtn').attr('disabled', 'disabled');
+                    }
+            });
+            
+            $(".regNo").keyup(function () {
+                if ($(this).val()) {
+                    $(".reg-searchbtn").removeAttr('disabled');
+                }
+                else {
+                    $(".reg-searchbtn").attr('disabled', 'disabled');
+                }
+            });
+
+            $("input[name=tireSelection]").on("click",function(){
+                var checkedRadioId = $(this).attr("id");
+                $("input[id="+checkedRadioId+"]").prop("checked","checked");
+                $("input:not(#"+checkedRadioId).removeAttr("checked");
+                $('.search-submitbtn').attr('disabled', 'disabled');
+            });
+
+            function ValidateRegistNumber(a) {
+                var expr = /^[a-zA-Z0-9 ]+$/g;
+                return expr.test(a);
+            }           
+        },		
+};

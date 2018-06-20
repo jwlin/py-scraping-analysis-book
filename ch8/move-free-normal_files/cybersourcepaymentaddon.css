@@ -1,0 +1,14 @@
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+
+#sopIframeCbox {
+    display: none;
+    overflow: hidden;
+}
+
+#sopRequestIframe {
+    width: 100%;
+    height: 370px;
+    border: 0;
+}

@@ -1,0 +1,10 @@
+<svg id="RWD_Icon_Set" data-name="RWD Icon Set" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0060a9;
+      }
+    </style>
+  </defs>
+  <path id="locator-pin" class="cls-1" d="M9,0A8.9,8.9,0,0,0,1.9,14.2l5.7,9.9v0.2h0a1.6,1.6,0,0,0,2.5.1h0.1l0.2-.4,5.6-9.7A8.9,8.9,0,0,0,9,0ZM8.9,13.4A4.4,4.4,0,1,1,13.3,9,4.4,4.4,0,0,1,8.9,13.4Z"/>
+</svg>

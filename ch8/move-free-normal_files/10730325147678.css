@@ -1,0 +1,389 @@
+﻿
+
+/*180611 css - category mane */
+.list-name-container {display:none}
+
+
+@media screen and (min-width: 1024px){
+h1.category-title {font-size:34px}	
+}
+
+
+@media screen and (max-width: 1023px){
+h1.category-title {font-size:18pt}		
+}
+
+
+
+
+/*180511 css - L2 category name */
+#theMenu > li > ul > li .show-sub-menu, #theMenu > li > ul > li > a  {
+	text-transform:none;
+}
+
+@media screen and (min-width: 1024px){
+#theMenu > li > ul > li .show-sub-menu, #theMenu > li > ul > li > a  {
+	text-transform:none;
+	
+}
+
+
+}
+
+/*180426 css - address filter */
+.form-group.address-sort-dropdown.address-controls{
+	display:none
+}
+
+
+
+
+/*171206css - unit */
+
+/*171130css - navigation */
+
+.price-per-unit{display:none}
+
+.cms-nav-component-wrapper .nbc-container > li {
+    margin-right: 3.8em;
+}
+
+@media screen and (min-width: 1024px){
+
+.cms-nav-component-wrapper .nbc-container > li {
+    margin-right: 3.8em;
+}
+	
+}
+
+
+/*180213css - menu */
+
+#theMenu li.topmenu .costco-icons{
+	float: right;
+    padding-top: 5px;
+    padding-right: 20px;
+    color: #0060a9;
+    font-size: 16px;
+    font-weight: 400;
+    transform: rotate(0);
+    transition: transform .3s;
+	
+}
+  
+#theMenu li.topmenu > a{
+
+    padding-left: 28px;
+    padding-right: 0px;
+    color: #0060a9;
+    font-size: 16px;
+    width: auto;
+    font-weight: 400;
+}
+
+
+
+
+
+/*Global css*/
+.wrapper_itemDes {
+	width: 95%;
+	display: inline-block;
+	margin: 0px auto;
+}
+
+.wrapper_itemDes h1 {
+	width: 100%;
+	display: inline-block;
+	clear: both;
+	font-size: 1.5em;
+	font-weight: 600;
+	margin-top: 30px;
+	color: #333333;
+}
+
+.container_itemDes {
+	position: relative;
+	width: 100%;
+	display: inline-block;
+	clear: both;
+	margin-top: 30px;
+}
+
+.container_itemDes .img_itemDes_L {
+	position: relative;
+	float: left;
+	width: 35%;
+	display: inline-block;
+}
+
+.container_itemDes .img_itemDes_R {
+	position: relative;
+	float: right;
+	width: 35%;
+	display: inline-block;
+}
+
+.container_itemDes .img_itemDes_L img {
+	width: 100%;
+	max-width: 440px;
+}
+
+.container_itemDes .img_itemDes_R img {
+	width: 100%;
+	max-width: 440px;
+}
+
+.container_itemDes .tbl_itemDes_L {
+	position: relative;
+	float: left;
+	width: 60%;
+	display: inline-block;
+}
+
+.container_itemDes .tbl_itemDes_R {
+	position: relative;
+	float: right;
+	width: 60%;
+	display: inline-block;
+}
+
+.container_itemDes .txt_itemDes_L {
+	position: relative;
+	float: left;
+	width: 60%;
+	display: inline-block;
+	text-align: left;
+}
+
+.container_itemDes .txt_itemDes_R {
+	position: relative;
+	float: right;
+	width: 60%;
+	display: inline-block;
+	text-align: left;
+}
+
+.container_itemDes h2 {
+	clear: both;
+	font-size: 1.2em;
+	font-weight: 600;
+	line-height: 150%;
+	color: #333333;
+	line-height: 1.5em;
+	margin-top: 15px;
+}
+
+.container_itemDes p {
+	clear: both;
+	font-size: 0.9em;
+	font-weight: 500;
+	margin-top: 15px;
+	line-height: 150%;
+	color: #333333;
+}
+
+caption {
+	position: absolute;
+	visibility: hidden;
+	font-size: 0;
+}
+
+table.tbl_gray {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 0px;
+	font-size: 13px;
+	position: relative;
+}
+
+table.tbl_gray th {
+	border: 1px solid #d1d1d1;
+}
+
+table.tbl_gray td {
+	border: 1px solid #d1d1d1;
+	font-weight: none;
+	text-align: center;
+	padding: 6px 6px 5px 12px;
+	line-height: 160%;
+	color: #333333;
+}
+
+table.tbl_gray thead {
+	font-weight: normal;
+	text-align: center;
+}
+
+table.tbl_gray thead th {
+	background: #d1d1d1;
+	border-bottom: 0px;
+	color: #555;
+	font-weight: 500;
+	text-align: center;
+	vertical-align: middle;
+	padding: 5px 7px 4px 11px;
+	line-height: 160%;
+}
+
+table.tbl_gray tbody th {
+	background: #f5f5f5;
+	color: #555;
+	font-weight: 500;
+	text-align: right;
+	vertical-align: middle;
+	padding: 5px 7px 4px 11px;
+	line-height: 160%;
+}
+
+table.tbl_gray td img {
+	vertical-align: middle;
+}
+
+ul.bullet_point {
+	position: relative;
+	clear: both;
+	width: 100%;
+	display: block;
+	list-style-type: disc;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 40px;
+	text-align: left;
+	padding: 0px 0px 0px 30px;
+}
+
+ul.bullet_point>li {
+	text-indent: 8px;
+	font-size: 0.98em;
+	font-weight: 500;
+	line-height: 150%;
+	color: #333333;
+	list-style: inherit;
+}
+
+.featured-content-component h4{
+	font-size:24px;
+    font-weight:normal;
+}
+
+.js-store-email {
+display:none;
+}
+.opening-hours {
+   display: none;
+}
+
+@media screen and (min-width: 0px) and (max-width: 640px) {
+	.container_itemDes .img_itemDes_L {
+		position: relative;
+		clear: both;
+		width: 100%;
+		display: inline-block;
+		max-width: 360px;
+	}
+	.container_itemDes .tbl_itemDes_L {
+		position: relative;
+		clear: both;
+		width: 100%;
+		display: inline-block;
+	}
+	.container_itemDes .txt_itemDes_L {
+		position: relative;
+		clear: both;
+		width: 100%;
+		display: inline-block;
+		margin-top: 30px;
+	}
+	.container_itemDes .img_itemDes_R {
+		position: relative;
+		clear: both;
+		width: 100%;
+		display: inline-block;
+		max-width: 360px;
+	}
+	.container_itemDes .tbl_itemDes_R {
+		position: relative;
+		clear: both;
+		width: 100%;
+		display: inline-block;
+	}
+	.container_itemDes .txt_itemDes_R {
+		position: relative;
+		clear: both;
+		width: 100%;
+		display: inline-block;
+		margin-top: 30px;
+	}
+		
+	.cms-nav-component-wrapper .nbc-container > li > a {
+  		margin-right: 10em;
+	}
+
+}
+
+/*** Country flags fix ***/
+.country-selector-main:before {
+    content: '臺灣';
+    padding-right: 10px;
+    font-size: 16px;
+}
+
+.top-header .flagicon, .bottom-footer .flagicon, .flag-footer {
+	display: none;
+}
+
+.top-header .country-select-dropdown,
+.bottom-footer .country-select-dropdown {
+	width: 150px;
+	left: -50%;
+ }
+
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+	.top-header .country-select-dropdown,
+	.bottom-footer .country-select-dropdown {
+		width: 150px;
+		left: -50%;
+	 }
+}
+
+.top-header .country-select-dropdown li .country-name,
+.bottom-footer .country-select-dropdown li .country-name {
+  margin-left: 8px;
+}
+
+.country-select-dropdown {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+footer#footer-widget .flag-footer + .country-text {
+  float: left;
+}
+
+footer#footer-widget .footer-flags a {
+  line-height: 24px;
+  color: #5f5f5f;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+
+/* TODO: remove this with proper coding on the width calculations */
+@media screen and (max-width: 767px) {
+  .product-listing.product-grid .product-item {
+    width: 49.8%;
+    }
+ }
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .product-listing.product-grid .product-item {
+    width: calc(99.8% / 3);
+  }
+ }
+ @media screen and (min-width: 1024px) {
+  .product-listing.product-grid .product-item {
+    width: 24.9%;
+  }
+ }

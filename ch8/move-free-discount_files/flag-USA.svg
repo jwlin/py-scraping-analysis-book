@@ -1,0 +1,41 @@
+<svg id="content" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ee2726;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #3d50a2;
+      }
+    </style>
+  </defs>
+  <title>flag-USA-v2</title>
+  <g>
+    <rect class="cls-1" y="10.9" width="30" height="1.36"/>
+    <rect class="cls-1" y="13.6" width="30" height="1.36"/>
+    <rect class="cls-2" y="12.3" width="30" height="1.36"/>
+    <rect class="cls-2" y="9.6" width="30" height="1.36"/>
+    <rect class="cls-3" width="12.3" height="9.55"/>
+    <rect class="cls-1" x="12.3" width="17.7" height="1.36"/>
+    <rect class="cls-1" x="12.3" y="2.7" width="17.7" height="1.36"/>
+    <rect class="cls-1" x="12.3" y="5.4" width="17.7" height="1.36"/>
+    <rect class="cls-1" x="12.3" y="8.2" width="17.7" height="1.36"/>
+    <rect class="cls-2" x="12.3" y="6.8" width="17.7" height="1.36"/>
+    <rect class="cls-2" x="12.3" y="4.1" width="17.7" height="1.36"/>
+    <rect class="cls-2" x="12.3" y="1.4" width="17.7" height="1.36"/>
+    <rect class="cls-2" x="1.4" y="1.4" width="1.4" height="1.36"/>
+    <rect class="cls-2" x="4.1" y="1.4" width="1.4" height="1.36"/>
+    <rect class="cls-2" x="6.8" y="1.4" width="1.4" height="1.36"/>
+    <rect class="cls-2" x="2.7" y="4.1" width="1.4" height="1.36"/>
+    <rect class="cls-2" x="5.4" y="4.1" width="1.4" height="1.36"/>
+    <rect class="cls-2" x="8.2" y="4.1" width="1.4" height="1.36"/>
+    <rect class="cls-2" x="1.4" y="6.8" width="1.4" height="1.36"/>
+    <rect class="cls-2" x="4.1" y="6.8" width="1.4" height="1.36"/>
+    <rect class="cls-2" x="6.8" y="6.8" width="1.4" height="1.36"/>
+  </g>
+</svg>
