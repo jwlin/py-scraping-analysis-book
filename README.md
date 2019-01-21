@@ -2,6 +2,8 @@
 
 作者：林俊瑋、林修博；出版商：博碩文化
 
+## [程式碼範例更新紀錄](https://github.com/jwlin/py-scraping-analysis-book/blob/master/README.md)
+
 ## 目錄
 
 1. 環境設定與網頁爬蟲初探
