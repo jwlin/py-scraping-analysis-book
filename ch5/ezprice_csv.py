@@ -11,7 +11,7 @@ if __name__ == '__main__':
     items = list()
     for div in soup.find_all('div', 'search-rst clearfix'):
         item = list()
-        item.append(div.h3.a.text.strip())  # 商品名稱
+        item.append(div.h2.a.text.strip())  # 商品名稱
         # 先取得價格字串，再移除其中的非數字部份(以空白字串取代非0-9的字元)
         price = div.find('span', 'num').text
         price = re.sub(r'[^0-9]', '', price)
@@ -26,9 +26,14 @@ if __name__ == '__main__':
     for item in items:
         print(item)
 
+    # 讓 Excel 開啟不會亂碼的方式
+    # 1.
     # with open('ezprice.csv', 'wb') as f:
     #     f.write(b'\xEF\xBB\xBF')  # 在檔頭加上 UTF-8 編碼的 BOM
-    # 或用 encoding='utf_8_sig'
+    # with open('ezprice.csv', 'a', encoding='utf-8', newline='') as f:
+    #
+    # 2.
+    # with open('ezprice.csv', 'w', encoding='utf-8-sig', newline='') as f:
 
     with open('ezprice.csv', 'w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
