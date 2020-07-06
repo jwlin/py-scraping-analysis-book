@@ -11,19 +11,21 @@ def main():
     soup = BeautifulSoup(resp.text, 'html.parser')
 
     articles = []
-    # 利用 regex 找出所有 'NormalPostLayout__Left' 開頭的 div
-    for div in soup.find_all('div', re.compile('NormalPostLayout__Left.+')):
-        lower_divs = div.find_all('div')
+    # 找出所有 role="article" 的 <article> tag
+    for div in soup.find_all('article', {"role": "article"}):
+        title = div.find("h2").text.strip()
+        lower_divs = div.find_all('div', recursive=False)
+        excerpt = lower_divs[1].text.strip()
         actions = lower_divs[2].text.strip()
         nums = re.findall(r"\d+", actions)
+        href = div.h2.a['href']
         articles.append({
-            'title': lower_divs[0].text.strip(),
-            'excerpt': lower_divs[1].text.strip(),
-            'bookmark': nums[1],
-            'response': nums[0],
-            'href': div.parent.parent.parent['href']
+            'title': title,
+            'excerpt': excerpt,
+            'bookmark': nums[0],
+            'response': nums[1],
+            'href': href
         })
-
     print('共 %d 篇' % (len(articles)))
     for a in articles[:3]:
         print(a)
