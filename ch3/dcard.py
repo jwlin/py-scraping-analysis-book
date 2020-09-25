@@ -15,8 +15,8 @@ def main():
     for div in soup.find_all('article', {"role": "article"}):
         title = div.find("h2").text.strip()
         lower_divs = div.find_all('div', recursive=False)
-        excerpt = lower_divs[1].text.strip()
-        actions = lower_divs[2].text.strip()
+        excerpt = lower_divs[2].text.strip()
+        actions = lower_divs[3].text.strip()
         nums = re.findall(r"\d+", actions)
         href = div.h2.a['href']
         articles.append({
